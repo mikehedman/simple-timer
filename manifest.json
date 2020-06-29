@@ -1,0 +1,42 @@
+{
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/examples/manifest_piu.json",
+	],
+	"config": {
+		"rotation": 0
+	},
+	"modules": {
+		"*": "./main"
+	},
+	"resources":{
+		"*": [
+			"./settings",
+			"./settings-black",
+			"./4213447-32"
+		],
+		"*-alpha": [
+			"./roboto-120"
+		],
+		"*-mask": [
+			"$(MODDABLE)/examples/assets/fonts/OpenSans-Regular-24"
+		]
+	},
+	"platforms": {
+		"mac": {
+			"config": {
+				"rotation": 0
+			},
+		},
+		"win": {
+			"config": {
+				"rotation": 0
+			},
+		},
+		"lin": {
+			"config": {
+				"rotation": 0
+			},
+		},
+	}
+}
