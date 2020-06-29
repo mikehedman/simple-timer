@@ -28,19 +28,21 @@ const settingsSkinBlack = { texture:{ path:"settings-black.png" }, x:0, y:0, wid
 const settingsSkinWhite = { texture:{ path:"settings.png" }, x:0, y:0, width:34, height:34 };
 let settingsSkin = settingsSkinWhite;
 
-//used to select dark/light mode
+//used to select between dark/light mode
+class ModeButtonBehavior extends Behavior {
+	onCreate(label, data) {
+		this.data = data;
+	}
+	onTouchBegan(label, id, x, y) {
+		application.distribute("onSettingsChange", this.data.mode);
+	}
+}
+
 const ModeButton = Label.template($ => ({
 	width:200, left:-10, right:-10, top:0, bottom:0, active:true, string:$.mode,
 	skin:$.mode === "Dark" ? buttonSkinBlack : buttonSkinWhite,
 	style:$.mode === "Dark" ? textStyleWhite : textStyleBlack,
-	Behavior: class extends Behavior {
-    onCreate(label, data) {
-      this.data = data;
-    }
-    onTouchBegan(label, id, x, y) {
-      application.distribute("onSettingsChange", this.data.mode);
-    }
-  }
+	Behavior: ModeButtonBehavior
 }));
 
 const SettingsContainer = Container.template($ => ({
@@ -61,13 +63,15 @@ const SettingsContainer = Container.template($ => ({
 	],
 }));
 
+class SettingsButtonBehavior extends Behavior {
+	onTouchBegan(label, id, x, y) {
+		application.distribute("onSettings");
+	}
+}
+
 const SettingsButton = Content.template($ => ({
 	skin:settingsSkin, active:true,
-	Behavior: class extends Behavior {
-    onTouchBegan(label, id, x, y) {
-      application.distribute("onSettings");
-    }
-  }
+	Behavior: SettingsButtonBehavior
 }));
 
 class numberPortBehavior extends Behavior {

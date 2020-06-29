@@ -9,6 +9,10 @@
 	"modules": {
 		"*": "./main"
 	},
+	"creation": {
+		"static": 65536,
+		"stack": 512
+	},
 	"resources":{
 		"*": [
 			"./settings",
@@ -21,22 +25,5 @@
 		"*-mask": [
 			"$(MODDABLE)/examples/assets/fonts/OpenSans-Regular-24"
 		]
-	},
-	"platforms": {
-		"mac": {
-			"config": {
-				"rotation": 0
-			},
-		},
-		"win": {
-			"config": {
-				"rotation": 0
-			},
-		},
-		"lin": {
-			"config": {
-				"rotation": 0
-			},
-		},
 	}
 }
