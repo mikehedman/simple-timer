@@ -1,0 +1,10 @@
+{
+    "tech.moddable.simple-timer": {
+        "app": {
+            "title": "Simple Timer",
+            "author": "Mike Hedman",
+            "description": "A simple timer app to be used for exercise, or whatever. Starts when plugged in, tapping the screen resets.",
+            "home": "https://github.com/mikehedman/simple-timer"
+        }
+    }
+}
